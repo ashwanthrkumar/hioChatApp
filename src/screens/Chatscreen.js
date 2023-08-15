@@ -1,10 +1,9 @@
 //import liraries
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FlatList } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Messagecomp from '../components/Messagecomp';
 import firestore from '@react-native-firebase/firestore'
 import Message from '../components/Message';
-import { FlatList } from 'react-native-gesture-handler';
 // create a component
 const Chatscreen = () => {
     const [messages, setMessage] = useState([]);
