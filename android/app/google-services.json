@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "372167791579",
+    "project_id": "hion-67525",
+    "storage_bucket": "hion-67525.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372167791579:android:57438ef629d9d3a4208dfe",
+        "android_client_info": {
+          "package_name": "com.hionchatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372167791579-22flrc63vq4fvl8nj0em89qf626hnhic.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hionchatapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "372167791579-629mt1olgkdb3on65m4f85e8q3e4af13.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1iT3q4QjkZZwPi7doF6Zkmr38r3xL8Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372167791579-629mt1olgkdb3on65m4f85e8q3e4af13.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
