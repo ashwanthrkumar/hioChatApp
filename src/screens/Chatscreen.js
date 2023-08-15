@@ -16,7 +16,7 @@ const Chatscreen = () => {
                     id: dataSnapshot.id,
                     value: dataSnapshot.data().message
                 })
-            })
+            });
             setMessage(messages);
         });
         return () => {
