@@ -1,22 +1,33 @@
 //import liraries
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons';
-const Messagecomp = () => {
+const Messagecomp = ({ onPressSend }) => {
+    const [message, setMessage] = useState('');
+    const changeTextHandler = value => {
+        setMessage(value);
+    };
+    const submitMessageHandler = () => {
+        //return value
+        onPressSend(message);
+        setMessage('');
+    }
     return (
         <View style={styles.mcontainer}>
             <View style={styles.textcontainer}>
-                <TextInput value='' placeholder='Type Message' />
+                <TextInput value={message} placeholder='Type Message' onChangeText={changeTextHandler} onSubmitEditing={submitMessageHandler} />
             </View>
-            <TouchableOpacity style={styles.buttoncontainer} onPress={() => { }}>
+            <TouchableOpacity style={styles.buttoncontainer} onPress={submitMessageHandler}>
                 <Icon name='send' size={25} color={'black'} />
             </TouchableOpacity>
 
         </View>
     );
 };
-
+Messagecomp.propTypes = {
+    onPressSend: PropTypes.func,
+}
 // define your styles
 const styles = StyleSheet.create({
     mcontainer: {
