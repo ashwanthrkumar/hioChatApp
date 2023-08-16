@@ -1,31 +1,51 @@
-//import liraries
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 //import { useScrollToTop } from '@react-navigation/native';
 import { FlatList } from 'react-native';
 import { Dimensions } from 'react-native';
 import { Image } from 'react-native';
-//import Icon from 'react-native-vector-icons/FontAwesome';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
+let id = '';
 // create a component
 const Users = () => {
 
-    const [users, setUsers] = useState('subscribe');
+    const [users, setUsers] = useState([]);
+    const navigation = useNavigation();
     useEffect(() => {
-        const unsubscribe = firestore().collection('users').doc('user1').onSnapshot(data => {
-            setUsers(JSON.stringify(data._data));
-        });
-        return () => {
-            unsubscribe();
-        };
+        getUsers();
     }, []);
+    const getUsers = async () => {
+        id = await AsyncStorage.getItem('USERID');
+        let tempData = []
+        const email = await AsyncStorage.getItem("EMAIL")
+        firestore().collection("users").where("email", "!=", email).get().then(res => {
+            if (res.docs != []) {
+                res.docs.map(item => {
+                    tempData.push(item.data());
+                });
+            }
+            setUsers(tempData);
+        });
 
+    };
     return (
-
         <View style={styles.container}>
-            <Text>{users}</Text>
+            <View style={styles.header}>
+                <Text style={styles.title}>HION CHAT APP</Text>
+            </View>
+            <FlatList data={users} renderItem={({ item, index }) => {
+                return (
+                    <TouchableOpacity style={styles.userItem} onPress={() => {
+                        navigation.navigate('Chatscreen', { data: item, id: id });
+                    }}>
+                        <Image source={require('../images/Leadership.png')} style={styles.userIcon} />
+                        <Text style={styles.name}>{item.name}</Text>
+                    </TouchableOpacity>
+                );
+            }} />
 
         </View>
     );
