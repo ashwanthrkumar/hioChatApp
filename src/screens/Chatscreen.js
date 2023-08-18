@@ -14,7 +14,11 @@ const Chatscreen = () => {
     const route = useRoute();
     const [loading, setLoading] = useState(true);
     const userId = DeviceInfo.getUniqueId();
-    const roomId = 'MessageDirectory';
+    // const roomId = 'MessageDirectory';
+    const roomId =
+        route.params.id > route.params.data.userId
+            ? route.params.data.userId + '-' + route.params.id
+            : route.params.id + '-' + route.params.data.userId;
     useEffect(() => {
         const unsubscribe = firestore().collection(roomId).onSnapshot(querySnapshot => {
             const messages = [];
