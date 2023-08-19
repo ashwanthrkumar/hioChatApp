@@ -7,6 +7,7 @@ import Signup from '../screens/Signup';
 import Login from '../screens/Login';
 import Main from '../screens/Main';
 import Chatscreen from '../screens/Chatscreen';
+import Cs from '../screens/Cs';
 const Stack = createStackNavigator();
 const AppNavigator = () => {
     return (
@@ -37,6 +38,7 @@ const AppNavigator = () => {
                     component={Chatscreen}
                     options={{ headerShown: true }}
                 />
+
             </Stack.Navigator>
         </NavigationContainer>
     );
