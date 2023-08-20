@@ -34,7 +34,7 @@ const Messagecomp = ({ onPressSend, referencedText }) => {
             {showReferencedText && referencedText ? (
                 <View style={styles.referencedTextContainer}>
                     <Text style={styles.intext}>Replying To:</Text>
-                    <Text style={styles.referencedText}>{referencedText}</Text>
+                    <Text style={styles.referencedText}>{referencedText.length > 15 ? referencedText.slice(0, 15) + '...' : referencedText}</Text>
                 </View>
             ) : null}
             {/* Hidden TextInput */}
