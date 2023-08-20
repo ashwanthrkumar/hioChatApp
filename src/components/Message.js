@@ -54,6 +54,7 @@ const Message = ({ message, isOwner1, onReply }) => {
             {...panResponder.panHandlers}
         >
             <Text style={[styles.text, isOwner1 ? styles.textright : styles.textleft]}>
+
                 {message}
             </Text>
 

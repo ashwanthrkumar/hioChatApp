@@ -17,6 +17,7 @@ const Chatscreen = () => {
 
 
     const textInputRef = useRef(null);
+    const ref = null;
 
 
 
@@ -77,8 +78,12 @@ const Chatscreen = () => {
             firestore().collection(roomId).doc(moment().format('YYYY-MM-DD-hh-mm-ss-sssss')).set({
                 message: message,
                 userId: userId1,
+                //if(referencedText) { referencedText: referencedText },
+                //referencedText: referencedText,
+
             });
         }
+        // setReferencedText('');
     };
 
 

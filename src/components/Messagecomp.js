@@ -4,8 +4,8 @@ import { View, StyleSheet, TextInput, TouchableOpacity, Text, Keyboard } from 'r
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons';
 const Messagecomp = ({ onPressSend, referencedText }) => {
-    console.log(onPressSend);
-    console.log(referencedText);
+    //console.log(onPressSend);
+    //console.log(referencedText);
     const [message, setMessage] = useState('');
     const hiddenTextInputRef = useRef(null);
     const [showReferencedText, setShowReferencedText] = useState(true); // Manage the visibility of referencedText
