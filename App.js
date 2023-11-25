@@ -6,5 +6,4 @@ const App = () => {
   //return <Chatscreen />;
   return <AppNavigator />;
 };
-
 export default App;
